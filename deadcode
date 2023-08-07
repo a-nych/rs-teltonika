@@ -1,0 +1,32 @@
+// impl AVLDataPacket {
+//     fn read(
+//         rest: &BitSlice<u8, Msb0>,
+//     ) -> Result<(&BitSlice<u8, Msb0>, String), DekuError> {
+//         let (rest, value) = u8::read(rest, ())?;
+//         Ok((rest, value.to_string()))
+//     }
+// }
+
+// use tokio::{net::UdpSocket, sync::mpsc};
+// use std::{io, net::SocketAddr, sync::Arc};
+
+// #[tokio::main]
+// async fn main() -> io::Result<()> {
+//     let sock = UdpSocket::bind("0.0.0.0:8080".parse::<SocketAddr>().unwrap()).await?;
+//     let r = Arc::new(sock);
+//     let s = r.clone();
+//     let (tx, mut rx) = mpsc::channel::<(Vec<u8>, SocketAddr)>(1_000);
+
+//     tokio::spawn(async move {
+//         while let Some((bytes, addr)) = rx.recv().await {
+//             println!("0 bytes sent");
+//         }
+//     });
+
+//     let mut buf = [0; 1024];
+//     loop {
+//         let (len, addr) = r.recv_from(&mut buf).await?;
+//         println!("{:?} bytes received from {:?}", len, addr);
+//         tx.send((buf[..len].to_vec(), addr)).await.unwrap();
+//     }
+// }
