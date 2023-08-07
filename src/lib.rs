@@ -6,3 +6,4 @@ pub mod avl_data_packet;
 pub mod codec;
 pub mod avl_data_codec8;
 pub mod avl_data_codec16;
+mod tests;
